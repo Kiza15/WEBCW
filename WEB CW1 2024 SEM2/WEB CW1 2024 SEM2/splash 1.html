@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website Splash Screen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #splash-screen {
+            text-align: center;
+            display: none;
+        }
+        
+        #names{
+            margin: 0px;
+        }
+
+        #loader {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 5px solid #3498db;
+            border-top: 5px solid #f4f4f4;
+            animation: spin 1s linear infinite;
+            display: f;
+            justify-content: center;
+            margin: 25px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="splash-screen">
+        <h1>Website Title</h1>
+        <p>Our Mission</p>
+        <h3>Group Members</h3>
+        
+        <p id="names">Tanishq Ransilu Gamage</p>
+        <p id="names">Herath Bandaralage Kisara Wethmin Kumara Herath</p>
+        <p id="names">Komanda Kankanange Rivindu Ladeesha Kowlinda</p>
+        <p id="names">Sunal Yethmin Rathnayaka</p>
+        
+    </div>
+    <div id="loader"></div>
+    <script>
+        function hideSplashScreen() {
+            setTimeout(() => {
+                document.getElementById('splash-screen').style.display = 'none';
+                window.location.href = 'attempt 2.html';
+            }, 4000);
+        }
+
+        window.onload = function () {
+            document.getElementById('splash-screen').style.display = 'block';
+            hideSplashScreen();
+        };
+    </script>
+</body>
+
+</html>

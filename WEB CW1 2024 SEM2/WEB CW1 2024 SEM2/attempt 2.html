@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Shop Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('sea.png'); 
+            background-size: cover; 
+            background-position: center;
+            background-attachment: fixed;
+        }
+        html, body {
+            height: 100%;
+        }
+        #header {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 6px;
+            margin-right: 6px;
+            margin-left: 6px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+            height: 100px; /* Increased height to accommodate buttons */
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            right: 0;
+            display: flex;
+            flex-direction: column; /* Change to column layout */
+            justify-content: space-between; /* Align items equally spaced */
+            align-items: center;
+        }
+
+        #navbar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        #navbar li {
+            flex: 1;
+            margin: 0 10px;
+        }
+
+        #navbar li a {
+            text-decoration: none;
+            color: #000;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #ddd;
+            width: calc(100% / 3); /* Divide equally among three buttons */
+            text-align: center;
+        }
+        input{
+            text-align: center;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            padding-top: 180px;
+            width: 73%;
+        }
+
+        .product {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            text-align: center;
+        }
+
+        .product img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .order-summary {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            position: absolute;
+            top: 180px;
+            right: 30px;
+            border: 2px solid black;
+        }
+
+        .checkout-form input {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .checkout-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        /* CSS */
+        .product-info {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .remove-button {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            font-size: 14px;
+            color: red;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <h1>Shop</h1>
+        <div id="nav">
+            <ul id="navbar">
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <div class="product-container">
+            <div class="product">
+                <img src="product1.jpg" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>Description of Product 1.</p>
+                <p>Price per unit: $19.99</p>
+                <button onclick="decrementQuantity('quantity1')">-</button>
+                <input type="number" id="quantity1" name="quantity" min="1" value="1" readonly>
+                <button onclick="incrementQuantity('quantity1')">+</button>
+                <br>
+                <br>
+                <button class="add-to-cart-btn" onclick="addToCart('Product 1', 19.99, 'quantity1')">Add to Cart</button>
+            </div>
+
+            <div class="product">
+                <img src="product2.jpg" alt="Product 2">
+                <h3>Product 2</h3>
+                <p>Description of Product 2.</p>
+                <p>Price per unit: $29.99</p>
+                <button onclick="decrementQuantity('quantity2')">-</button>
+                <input type="number" id="quantity2" name="quantity" min="1" value="1" readonly>
+                <button onclick="incrementQuantity('quantity2')">+</button>
+                <br>
+                <br>
+                <button class="add-to-cart-btn" onclick="addToCart('Product 2', 29.99, 'quantity2')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product2.jpg" alt="Product 2">
+                <h3>Product 3</h3>
+                <p>Description of Product 3.</p>
+                <p>Price per unit: $29.99</p>
+                <button onclick="decrementQuantity('quantity3')">-</button>
+                <input type="number" id="quantity3" name="quantity" min="1" value="1" readonly>
+                <button onclick="incrementQuantity('quantity3')">+</button>
+                <br>
+                <br>
+                <button class="add-to-cart-btn" onclick="addToCart('Product 3', 29.99, 'quantity3')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product2.jpg" alt="Product 2">
+                <h3>Product 4</h3>
+                <p>Description of Product 4.</p>
+                <p>Price per unit: $29.99</p>
+                <button onclick="decrementQuantity('quantity4')">-</button>
+                <input type="number" id="quantity4" name="quantity" min="1" value="1" readonly>
+                <button onclick="incrementQuantity('quantity4')">+</button>
+                <br>
+                <br>
+                <button class="add-to-cart-btn" onclick="addToCart('Product 4', 29.99, 'quantity4')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product2.jpg" alt="Product 2">
+                <h3>Product 5</h3>
+                <p>Description of Product 5.</p>
+                <p>Price per unit: $29.99</p>
+                <button onclick="decrementQuantity('quantity5')">-</button>
+                <input type="number" id="quantity5" name="quantity" min="1" value="1" readonly>
+                <button onclick="incrementQuantity('quantity5')">+</button>
+                <br>
+                <br>
+                <button class="add-to-cart-btn" onclick="addToCart('Product 5', 29.99, 'quantity5')">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="product2.jpg" alt="Product 2">
+                <h3>Product 6</h3>
+                <p>Description of Product 6.</p>
+                <p>Price per unit: $29.99</p>
+                <button onclick="decrementQuantity('quantity6')">-</button>
+                <input type="number" id="quantity6" name="quantity" min="1" value="1" readonly>
+                <button onclick="incrementQuantity('quantity6')">+</button>
+                <br>
+                <br>
+                <button class="add-to-cart-btn" onclick="addToCart('Product 6', 29.99, 'quantity6')">Add to Cart</button>
+            </div>
+        </div>
+
+        
+        <div class="order-summary">
+            <h2>Cart</h2>
+            <ul id="cart-items">  
+            </ul>
+            <p id="cart-total">Total: $0.00</p>
+            <button class="proceed-to-checkout-btn" onclick="proceedToCheckout()" disabled>Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <script>
+        let cart = [];
+        let total = 0;
+    
+        function addToCart(productName, productPrice, quantityId) {
+            // Get the selected quantity based on the quantity ID
+            var quantity = document.getElementById(quantityId).value;
+
+            // Calculate the total price for the selected quantity
+            var totalPrice = productPrice * quantity;
+
+            // Check if the item is already in the cart
+            var existingItem = cart.find(item => item.name === productName);
+
+            if (existingItem) {
+                // If the item already exists in the cart, update its quantity and total price
+                existingItem.quantity += parseInt(quantity);
+                existingItem.price += totalPrice;
+            } else {
+                // If the item is not in the cart, add it
+                cart.push({ name: productName, price: totalPrice, quantity: parseInt(quantity) });
+            }
+
+            // Update the cart display
+            updateCart();
+        }
+        function updateCart() {
+            const cartItemsElement = document.getElementById("cart-items");
+            const cartTotalElement = document.getElementById("cart-total");
+            cartItemsElement.innerHTML = "";
+            total = 0;
+
+            cart.forEach(item => {
+                const listItem = document.createElement("li");
+                listItem.classList.add("product-info"); // Add the class to the list item
+                
+                // Product info text
+                const productInfo = document.createElement("span");
+                productInfo.textContent = `${item.name} x ${item.quantity} : $${item.price.toFixed(2)}`;
+                listItem.appendChild(productInfo);
+                
+                // Create a remove button for each item
+                const removeButton = document.createElement("button");
+                removeButton.textContent = "X";
+                removeButton.className = "remove-button"; // Add class to style the button
+                removeButton.onclick = () => removeCartItem(item.name);
+                listItem.appendChild(removeButton);
+                
+                cartItemsElement.appendChild(listItem);
+                total += item.price;
+            });
+
+            cartTotalElement.textContent = `Total: $${total.toFixed(2)}`;
+            document.querySelector(".proceed-to-checkout-btn").disabled = cart.length === 0;
+        }
+
+
+        function removeCartItem(productName) {
+            // Find the index of the item to remove
+            const index = cart.findIndex(item => item.name === productName);
+            
+            // Remove the item from the cart
+            if (index !== -1) {
+                cart.splice(index, 1);
+            }
+            
+            // Update the cart display
+            updateCart();
+        }
+
+    
+        function proceedToCheckout() {
+            window.location.href = "CHECKOUT.html";
+        }
+    
+        function completePurchase() {
+            document.getElementById("order-confirmation-message").style.display = "block";
+            document.getElementById("checkout-form").style.display = "none";
+        }
+    
+        function incrementQuantity(quantityId) {
+            var quantityInput = document.getElementById(quantityId);
+            quantityInput.value = parseInt(quantityInput.value) + 1;
+        }
+
+        function decrementQuantity(quantityId) {
+            var quantityInput = document.getElementById(quantityId);
+            if (parseInt(quantityInput.value) > 1) {
+                quantityInput.value = parseInt(quantityInput.value) - 1;
+            }
+        }
+
+    </script>
+    
+</body>
+
+</html>
